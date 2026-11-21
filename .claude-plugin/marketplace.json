@@ -1,0 +1,12 @@
+{
+  "name": "chat-widget-builder-skill",
+  "owner": { "name": "Saurabh186", "url": "https://github.com/Saurabh186" },
+  "metadata": { "description": "Claude skill for building and customizing embeddable chat widgets." },
+  "plugins": [
+    {
+      "name": "chat-widget-builder",
+      "source": "./plugins/chat-widget-builder",
+      "description": "Build or customize an embeddable chat widget on your own APIs in any frontend stack, with real-time messaging, branding, tests and docs."
+    }
+  ]
+}
