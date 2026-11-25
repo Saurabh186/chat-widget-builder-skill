@@ -8,6 +8,7 @@ You describe what you need. Claude asks one question at a time, shows you a plan
 
 - **Two modes.** Create a new, independent widget, or customize an existing one with the smallest possible change.
 - **Your APIs only.** Claude collects your real request/response and socket examples. It never invents endpoints or fields. Anything not confirmed is marked `TODO(confirm-with-user)`.
+- **No `.env` needed for MSG91 Hello.** The production API and socket URLs are built in (`references/msg91-environments.md`), with test URLs as an option. Claude asks only for your widget token.
 - **Real-time support.** Uses whatever your backend speaks: socket.io, WebSocket, SSE or polling. Includes reconnect, history catch-up and deduplication.
 - **Pick your features.** Choose from a menu: history, typing indicator, unread badge, attachments, emoji, quick replies, markdown, bot → human handoff, and more.
 - **Design.** Reproduce the reference design, follow your screenshots or Figma, or let Claude generate one. Includes theme tokens, responsive layout and accessibility.

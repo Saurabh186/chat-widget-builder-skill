@@ -24,7 +24,7 @@ The mode is `state.draftData.isHelloUser`.
 | HELLO: human/helpdesk chat (MSG91) | Embed script sets `isHelloUser: true` (`hooks/HELLO/eventHandlers/embeddingScript/embeddingScriptEventHandler.ts`) | `config/helloApi.ts` via `utils/helloInterceptor.ts` | socket.io: `hooks/socketManager.js` (chat) + `hooks/notifications/notificationSocketManager.ts` (notifications) |
 | GTWY: AI chatbot ("interface") | `app/chatbot/page.tsx` stores `interfaceToken`, `isHelloUser: false` | `config/api.ts`, `config/ragApi.ts` via `utils/interceptor.ts` | `rtlayer-client` (`components/Chatbot/hooks/useRtlayerEventManager.tsx`) |
 
-Env vars (names only): `NEXT_PUBLIC_MSG91_HOST_URL` (HELLO API), `NEXT_PUBLIC_PUSH_NOTIFICATION_URL`, `NEXT_PUBLIC_API_BASE_URL` (GTWY), `NEXT_PUBLIC_PYTHON_API_BASE_URL` (GTWY AI), `NEXT_PUBLIC_SOCKET_URL` (chat socket), `NEXT_PUBLIC_NOTIFICATOIN_SOCKET_URL` (sic). An iframe query `?env=stage` swaps three base URLs to hardcoded stage hosts.
+Env vars (names only): `NEXT_PUBLIC_MSG91_HOST_URL` (HELLO API), `NEXT_PUBLIC_PUSH_NOTIFICATION_URL`, `NEXT_PUBLIC_API_BASE_URL` (GTWY), `NEXT_PUBLIC_PYTHON_API_BASE_URL` (GTWY AI), `NEXT_PUBLIC_SOCKET_URL` (chat socket), `NEXT_PUBLIC_NOTIFICATOIN_SOCKET_URL` (sic). An iframe query `?env=stage` swaps three base URLs to hardcoded stage hosts. Production and test values for these hosts are in `msg91-environments.md`; use them instead of asking the user.
 
 ## A2. HELLO HTTP endpoints
 

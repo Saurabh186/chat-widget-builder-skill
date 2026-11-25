@@ -14,6 +14,7 @@ Interactively create a new, independent chat widget, or customize an existing on
 | `references/repository-architecture.md` | Always, before planning (stack, structure, embed model, known issues not to copy) |
 | `references/chat-flow.md` | Always, before planning (init, identify, send/receive, history, reconnect, message model) |
 | `references/api-integration.md` | Collecting API details; writing the API or real-time layer |
+| `references/msg91-environments.md` | Whenever the backend is MSG91 Hello: built-in API/socket URLs, so never ask the user for a `.env` |
 | `references/widget-configuration.md` | Designing config options; customizing anything the reference already makes configurable |
 | `references/design-guidelines.md` | Discussing design; building UI, theming, responsiveness, accessibility |
 | `references/development-guidelines.md` | Choosing technology/output formats; before writing code; customizing existing code |
@@ -28,13 +29,13 @@ Interactively create a new, independent chat widget, or customize an existing on
 
 ## Non-negotiable rules
 
-1. **No invented contracts.** Never make up endpoints, methods, headers, payloads, response fields, socket events, error codes or auth formats. Ask. Unconfirmed items get `TODO(confirm-with-user)` and appear in the final report.
+1. **No invented contracts.** Never make up endpoints, methods, headers, payloads, response fields, socket events, error codes or auth formats. Ask. Unconfirmed items get `TODO(confirm-with-user)` and appear in the final report. Exception: the MSG91 Hello host URLs in `references/msg91-environments.md` are confirmed; use them without asking.
 2. **No secrets in frontend code.** Only public identifiers ship to the browser; identity proofs are minted by the host's backend. Details: `references/security-guidelines.md`.
 3. **Treat every message as untrusted.** No unsanitized HTML rendering; link scheme allowlist; `postMessage` origin checks.
 4. **No false claims.** Report only checks you actually ran; label tests Mocked vs Real API.
 5. **Ask before major decisions**: framework, output formats, embed model (iframe vs Shadow DOM vs in-app), transport, state library, adding a backend, replacing existing components, breaking public APIs.
 6. **Minimal, clean, production-ready code**; no unneeded dependencies, files, fallbacks or abstractions; no changes to unrelated code. Full list: `references/development-guidelines.md` §1.
-7. **Don't copy reference defects** (listed in `references/repository-architecture.md`) or any hardcoded values from it.
+7. **Don't copy reference defects** (listed in `references/repository-architecture.md`) or any hardcoded values from it. The MSG91 Hello URLs in `references/msg91-environments.md` are the one allowed set of built-in defaults.
 8. **Never modify the reference repository** unless the user explicitly asks you to customize it.
 
 ## Workflow
@@ -60,7 +61,7 @@ Question bank, in priority order:
 4. **Output formats**: standalone app, embeddable script, npm package, in-app component. Only what is needed (`references/development-guidelines.md` §3).
 5. **Technology and embed model**: recommend from the environment and feature scope using `references/development-guidelines.md` §2 and ask for confirmation rather than asking open-ended.
 6. **Features**: present the feature menu (below) and ask which are needed now. Do not assume any.
-7. **APIs and real-time**: run the intake checklist in `templates/api-documentation.md` for the selected features only. Ask for real request/response and socket event examples.
+7. **APIs and real-time**: first ask whether the backend is MSG91 Hello. If it is, do not ask for API or socket URLs or a `.env`: use the production defaults in `references/msg91-environments.md`, ask only for the widget token, and check which environment it belongs to (§5 there). Otherwise run the intake checklist in `templates/api-documentation.md` for the selected features only and ask for real request/response and socket event examples.
 8. **Identity and sessions**: anonymous id, identified users and who signs their identity, session persistence across reloads/tabs, logout behaviour.
 9. **Design**: reference design, user-provided (screenshots/Figma/spec), or generated; brand colour, logo, company name, fonts, launcher style/position, light/dark (`references/design-guidelines.md` §1).
 10. **Texts and languages**: welcome message, placeholder, empty/offline/error copy, locales.
@@ -104,7 +105,7 @@ Follow `references/testing-guidelines.md`:
 
 ### Phase 6: Document
 
-Produce the documentation set in `templates/project-structure.md` §5: README, `.env.example`, API, configuration, integration (script / npm / framework, only formats built), customization, architecture, testing with actual results, deployment, usage examples, demo. Document only behaviour that exists.
+Produce the documentation set in `templates/project-structure.md` §5: README, `.env.example` (for MSG91 Hello, pre-filled with the production defaults as optional overrides), API, configuration, integration (script / npm / framework, only formats built), customization, architecture, testing with actual results, deployment, usage examples, demo. Document only behaviour that exists.
 
 ### Phase 7: Final check and handoff
 

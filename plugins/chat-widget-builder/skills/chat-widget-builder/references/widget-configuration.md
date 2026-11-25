@@ -139,7 +139,7 @@ Origin checks: `chat-widget.js` accepts only `scriptOrigin`/host origin **and** 
 
 ## 8. Environments and build
 
-- Env vars: `NEXT_PUBLIC_MSG91_HOST_URL`, `NEXT_PUBLIC_PUSH_NOTIFICATION_URL`, `NEXT_PUBLIC_API_BASE_URL`, `NEXT_PUBLIC_PYTHON_API_BASE_URL`, `NEXT_PUBLIC_SOCKET_URL`, `NEXT_PUBLIC_NOTIFICATOIN_SOCKET_URL` (misspelled in code; keep the spelling when customizing), `REACT_APP_API_ENVIRONMENT`. `.env*` is gitignored; no `.env.example` exists.
+- Env vars: `NEXT_PUBLIC_MSG91_HOST_URL`, `NEXT_PUBLIC_PUSH_NOTIFICATION_URL`, `NEXT_PUBLIC_API_BASE_URL`, `NEXT_PUBLIC_PYTHON_API_BASE_URL`, `NEXT_PUBLIC_SOCKET_URL`, `NEXT_PUBLIC_NOTIFICATOIN_SOCKET_URL` (misspelled in code; keep the spelling when customizing), `REACT_APP_API_ENVIRONMENT`. `.env*` is gitignored; no `.env.example` exists. Values for production and test: `msg91-environments.md` (use them; do not ask the user).
 - Script variants per environment are separate files (`chat-widget.js`, `-dev.js`, `-local.js`) with different hosts/defaults; `-dev` forwards `?env=stage` to the iframe, which switches HELLO API and sockets to stage hosts.
 - Build: `next build`; Cloudflare Pages via `npm run build:pages` (`@cloudflare/next-on-pages`); chatbot routes use `runtime = "edge"`. `preview`/`deploy` scripts call a non-existent `pages:build` script, and there is no `wrangler.toml`. `next.config.ts` ignores ESLint and TypeScript errors during builds.
 

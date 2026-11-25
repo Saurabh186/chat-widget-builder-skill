@@ -127,7 +127,7 @@ Rules (from the reference's own `AI_INSTRUCTIONS.md`, and good practice):
 
 When customizing the reference (`react-main`) specifically:
 
-- Follow its `docs/AI_INSTRUCTIONS.md`: reuse Redux slices/sagas, the central socket manager, axios interceptors and env vars; no new state libraries, no extra socket connections, no hardcoded URLs.
+- Follow its `docs/AI_INSTRUCTIONS.md`: reuse Redux slices/sagas, the central socket manager, axios interceptors and env vars; no new state libraries, no extra socket connections, no hardcoded URLs. Fill the env vars from `msg91-environments.md` rather than asking the user for them.
 - Much appearance and behaviour comes from the backend's widget settings (fetched at init), not from code; check `widget-configuration.md` before changing code for something that is already a setting.
 - Its ESLint ignores `app/` and `components/` and disables `rules-of-hooks`; run `npx tsc --noEmit` as the real check and do not add new hook-rule violations.
 - It has no test suite: add tests for what you change (see `testing-guidelines.md`).

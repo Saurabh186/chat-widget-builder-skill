@@ -402,7 +402,7 @@ VITE_ACME_SOCKET_URL=wss://rt.acme.test
 
 ## 8. Variant: the backend is MSG91 Hello (the reference's backend)
 
-If the user's backend **is** the reference's Hello platform, reuse the reference's contract from `references/api-integration.md` A2–A4 instead of asking for docs. Before relying on it, confirm three things with the user: the environment base URLs, the widget token, and whether `user_jwt_token` is required.
+If the user's backend **is** the reference's Hello platform, reuse the reference's contract from `references/api-integration.md` A2–A4 instead of asking for docs. Take the base URLs from `references/msg91-environments.md` (production by default); do not ask for them. Confirm two things with the user: the widget token (and check its environment, §5 there) and whether `user_jwt_token` is required.
 
 Adapter mapping:
 
